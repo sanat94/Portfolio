@@ -1,6 +1,39 @@
-extends layout  
-       
-block content
+doctype html
+html(lang='en')
+  head
+    title Personal Portfolio
+    meta(charset='utf-8')
+    meta(name='keywords', content='Sana Tafleen, portfolio, ULL, student')
+    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='https://afeld.github.io/emoji-css/emoji.css')
+  body(class="login-page", data-spy='scroll', style='padding-top:50px')
+  .container
+    nav.navbar.navbar.navbar-fixed-top
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(style="font-size:25px; color:black") PORTFOLIO WEBSITE
+        form.navbar-form.navbar-right
+          .form-group
+            input.form-control(type='text', placeholder='Search')
+          button.btn.btn-default(type='submit')
+            span.glyphicon.glyphicon-search
+        #navbar.collapse.navbar-collapse
+            .navigation
+            ul.nav.navbar-nav.navbar-right
+              //li
+                a(href='/')
+                  span.glyphicon.glyphicon-log-out(style="font-size:25px; color:black")
+                    |  Logout
+              li
+                a(href='/') 
+                  span.glyphicon.glyphicon-home(style="font-size:25px; color:black")
+                    |  HOME
     h1 Login
     form(method='POST', action = '/users/login')
         #form-group 
@@ -10,4 +43,10 @@ block content
             label Password:
             input.form-control(name='password', type='password')
         br
+        input(type='checkbox', checked='checked')
+        |  Remember me
+        br
+        p Not a member? 
+          a(href="/users/register") Sign Up
         input.btn.btn-primary(type='submit', value='Submit')
+        

@@ -1,46 +1,244 @@
 doctype html
-html
-    head 
-        title Knowledgebase
-        link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
-        link(rel='stylesheet' href='/css/style.css')
-    body
-        nav.navbar.navbar-inverse
-            .container
-                .navbar-header
-                    button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-                        span.sr-only Toggle navigation
-                        span.icon-bar
-                        span.icon-bar
-                        span.icon-bar
-                    a.navbar-brand(href='/') KnowledgeBase
-                #navbar.collapse.navbar-collapse
-                    ul.nav.navbar-nav
-                        li
-                            a(href='/') Home
-                        if user
-                            li
-                                a(href='/articles/add') Add Articles
-                    ul.nav.navbar-nav.navbar-right
-                        if user
-                            li 
-                                a(href='/users/logout') Logout
-                        else
-                            li  
-                                a(href='/users/register') Register
-                            li 
-                                a(href='/users/login') Log In
-        .container
-            != messages('message', locals)
-            if errors
-                each error, i in errors
-                    div(class="alert alert-danger") #{error.msg}
-            block content
-            br 
-            hr
-            footer
-                p Copyright &copy; 2017
-        script(src='/bower_components/jquery/dist/jquery.js')
-        script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
-        script(src='/js/main.js')
-        
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='templatemo')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Personal Portfolio
+    //
+      Stimulus Template
+      http://www.templatemo.com/tm-498-stimulus
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/font-awesome.min.css')
+    link(rel='stylesheet', href='css/templatemo-style.css')
+    link(rel='stylesheet' href='/css/style.css')
+    link(rel='stylesheet' href='https://afeld.github.io/emoji-css/emoji.css')
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body(class="layout-page", data-spy='scroll', data-target='.navbar-collapse', data-offset='50')
+  if user
+    // PRE LOADER
+    .preloader
+      .spinner
+        span.spinner-rotate
+    // Navigation Section
+    .navbar.navbar-fixed-top.custom-navbar(role='navigation')
+      .container
+        // navbar header
+        .navbar-header
+          button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon.icon-bar
+            span.icon.icon-bar
+            span.icon.icon-bar
+          a.navbar-brand(href='/layout') My Portfolio
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.smoothScroll(href='#home') Home
+            li
+              a.smoothScroll(href='#about') About Me
+            li
+              a.smoothScroll(href='#projects') Projects
+            li
+              a.smoothScroll(href='#quotes') Resume
+            li
+              a.smoothScroll(href='#contact') Contact
+            li
+              a(href='/') 
+                span.glyphicon.glyphicon-log-out  Logout
+              
+    // Home Section
+    section#home.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+            .home-img
+          .col-md-6.col-sm-6
+            .home-thumb
+              .section-title
+                h1.wow.fadeInUp(data-wow-delay='0.3s') Hey there! Welcome
+                  i.em.em-smiley
+                h3.wow.fadeInUp(data-wow-delay='0.6s')
+                  | My name is  
+                  strong Sana Tafleen,
+                  |  a design-minded web developer focused 
+                  | on building beautiful applications and experiences.
+                h3.wow.fadeInUp(data-wow-delay='0.9s')
+                  | I am seeking a full-time position as a Software developer to utilize my 
+                  | problem solving skills. 
+                h3.wow.fadeInUp(data-wow-delay='1.1s')
+                  | If you want to know more about me, click 
+                  i.em.em-point_down
+                    a.wow.fadeInUp.smoothScroll.section-btn.btn.btn-success(href='#about', data-wow-delay='1.4s') Get Started
+    // About Section
+    section#about.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+          .bg-yellow
+            .about-thumb
+              .wow.fadeInUp.section-title(data-wow-delay='0.4s')
+                h1 ABOUT ME
+                h3 I am currently pursuing Master's in University of Louisiana at Lafayette.
+                h4 SUMMARY OF STRENGTHS
+                ul(style="font-size:20px") 
+                  li Well acquainted with information technology and computer science concepts including algorithms, database
+                    |  technologies, networking, operating systems and software engineering
+                  li Strong research interest and experience in programming in C, C++ and Java
+                  li Knowledgeable in emerging technologies including App development, Ruby and Python
+                  li Strong communication, writing and presentation skills
+          .col-md-6.col-sm-6
+            .skill-thumb
+              .wow.fadeInUp.section-title.color-black(data-wow-delay='1.2s')
+                h1 MY SKILLS
+                p SQL, MYSQL, C, C++, Java, Python
+              .wow.fadeInUp.skills-thumb(data-wow-delay='1.4s')
+                strong Frontend Design
+                span.pull-right 80%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%;')
+                strong Proficiency in Programming Languages
+                span.pull-right 90%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='90', aria-valuemin='0', aria-valuemax='100', style='width: 90%;')
+                strong Operating Systems
+                span.pull-right 95%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='95', aria-valuemin='0', aria-valuemax='100', style='width: 95%;')
+          .col-md-6.col-sm-6
+            .background-image.experience-img
+          .col-md-6.col-sm-6
+            .experience-thumb
+              .wow.fadeInUp.section-title(data-wow-delay='0.8s')
+                h1 MY EXPERIENCE
+              .wow.fadeInUp.media(data-wow-delay='1.0s')
+                .media-object.media-left
+                .media-body
+                  li(style='font-size:26px') Research Assistant at University of Louisiana at Lafayette 
+                    small Sep 2016 - Present 
+                  h4.color-black Project: Virtual Crisis Information Sharing using SDN/OpenFlow
+                  p Introduce a video-based mobile application for the
+                    | public to report any ongoing incidents or disasters. My research is to develop a fast failure recovery from any
+                    | virtual switch failures, to have a resilient SDN network to handle network failures as well as improved network
+                    | performance.
+    section#education.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+            .education-thumb
+              .wow.fadeInUp.section-title(data-wow-delay='0.8s')
+                h1 MY EDUCATION
+              .wow.fadeInUp.media(data-wow-delay='1.2s')
+                .media-object.media-left
+                  //i.fa.fa-laptop
+                .media-body
+                  li(style='font-size:26px') University of Louisiana at Lafayette
+                    small  Aug 2016 - Present
+                  p Pursuing Master's in Computer Science
+              .wow.fadeInUp.media(data-wow-delay='1.4s')
+                .media-object.media-left
+                  //i.fa.fa-laptop
+                .media-body
+                  li(style='font-size:26px')  V.R. Siddhartha Engineering College 
+                    small Sep 2012 - May 2016
+                  p Bachelor's degree of Technology (Graduate)
+          .col-md-6.col-sm-6
+            .background-image.education-img
+    // Projects Section
+    section#projects.parallax-section
+      .container
+        .row
+          h1 MY PROJECTS
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.4s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/sti.jpg', alt='Student Teacher Interaction System')
+              h2.heading Student Teacher Interaction System
+              p.description A web and mobile application acting as information kiosk for students and faculty to increase interaction and communication.
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.6s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/isr.jpg', alt='Ranking of Multi-attribute objects')
+              h2.heading Ranking of Multi-Attribute objects
+              p.description Proposed a mathematical and algorithmic framework for learning to aggregate partial rankings without supervision using Multinomial Preference Model (MPM).
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.8s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/cg.jpg', alt='Computer Graphics')
+              h2.heading Computer Graphics
+              p.description Develop a basic triangular mesh viewer and provide interactive mouse control for rotating, zooming using OpenGL.
+    // Resume Section
+    section#quotes.parallax-section
+      .overlay
+      .container
+        .row
+          #resume-link.col-md-12
+            a#resume-anchor(href='https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=1ec61f81d8&view=att&th=15f545728e652dec&attid=0.1&disp=inline&realattid=f_j978zhju0&safe=1&zw&saddbat=ANGjdJ_otyqNpmvts2sNsfAJY6X3kerR-z6pVVyflNiG9X17l50xMeZuY00ha-1642e3reMxOczklKz459mktwOF00WEzMJk5l-kWCfyUnmU-6HwoglmZt2lKuGp7axlgUHxhRFGu99cjJhINWKcgIj7c8U8UCtjk8h7V357nIO5FBDDSSeirVZQPr0JoagwQXvmMPonMX5LENcTquti6wN8_98KweLDR8vOP6-ak5LmLvL0cjB2_3GKVWTNmUx6spz7jJto_TJYreccJY0XJr3OtjmRkeeG3UaDJKN5pFm1u1-IlGbKeP9Fz6Ur7BdDMMWjQb4jUEXju-lONuPQ5hUhjE4OjpkN3A-mhjSemhLBkx9RXBvtrJAamFmnbvngFf08R9oizyF8SInkY9m8S9TNwj1ZVOIUTrtN4BNyoP83Is7GcBgShRoFZKJcKDJ3JGJiAnbUHH8WF1cc3a65OgwZ63E_bHsdrQ6nbEkWJK59b450HRTToYfdczp37QxVrzPBgI09oTEZwzBdDKsyL3n6k3R5n7rZ5fwvEIIU5BR8WoYur3TDorKcV96ouBgNogPkfXNdB2N3Qto0uw1BhM_g5NQSB6uBD7TmG8cFWA')
+              img(src='img/pdf.png',alt="RESUME")
+              h1 RESUME
+    // Contact Section
+    section#contact.parallax-section
+      .container
+        .row
+          .contact-form
+            .wow.fadeInUp.section-title(data-wow-delay='0.2s')
+              h1.color-white Say hello..
+              p.color-white Fill out your details for me to contact you. Thank You!
+            #contact-form
+              form(action='https://mail.google.com/mail/u/0/', method='post')
+                .wow.fadeInUp(data-wow-delay='1s')
+                  #form-group 
+                    input.form-control(name='name', type='text', placeholder='Your Name')
+                .wow.fadeInUp(data-wow-delay='1.1s')
+                  #form-group 
+                    input.form-control(name='email', type='text', placeholder='Your Email',  required='')
+                .wow.fadeInUp(data-wow-delay='1.2s')
+                  #form-group
+                    textarea.form-control(name='message', rows='5', placeholder='Write your message...')
+                .wow.fadeInUp.col-md-6.col-sm-8(data-wow-delay='1.3s')
+                   #form-group
+                    input.form-control(name='submit', type='submit', value='Send')
+      .container
+      != messages('message', locals)
+      if errors
+        each error, i in errors
+          div(class="alert alert-danger") #{error.msg}
+      block content
+      br
+      hr
+    // Footer Section
+    footer
+      .container
+        .row
+          .col-md-12.col-sm-12
+            .wow.fadeInUp.footer-copyright(data-wow-delay='1.0s')
+              p
+                | Copyright & Design: Sana Tafleen 2017
+            ul.wow.fadeInUp.social-icon(data-wow-delay='1.1s')
+              li
+                i.fa.fa-facebook
+                a(href='http://www.facebook.com/sana.tafleen')
+              li
+                a.fa.fa-twitter(href='#')
+              li
+                a.fa.fa-google-plus(href='#')
+              li
+                a.fa.fa-dribbble(href='#')
+              li
+                a.fa.fa-linkedin(href='#')
+    // SCRIPTS
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.parallax.js')
+    script(src='js/smoothscroll.js')
+    script(src='js/wow.min.js')
+    script(src='js/custom.js')
+    
+    

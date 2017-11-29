@@ -73,6 +73,7 @@ app.use(expressValidator({
     }
 }));
 
+
 //Passport config
 require('./config/passport')(passport);
 //Passport Middleware
@@ -97,6 +98,57 @@ app.get('/', function(req, res){
         }
     });    
 }); 
+
+//Layout route
+app.get('/layout', function(req, res){
+    Article.find({}, function(err, articles){
+        if(err){
+            console.log(err);
+        }else{
+        res.render('layout', {
+        title:'Portfolio',
+        articles: articles
+            });
+        }
+    });    
+}); 
+
+//Images route
+app.get('/img/welcome.gif', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'welcome.gif'))
+});
+
+app.get('/img/contact-img.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'contact-img.jpg'))
+});
+
+app.get('/img/education-img.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'education-img.jpg'))
+});
+
+app.get('/img/experience-img.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'experience-img.jpg'))
+});
+
+app.get('/img/quotes-bg.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'quotes-bg.jpg'))
+});
+
+app.get('/img/cg.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'cg.jpg'))
+});
+
+app.get('/img/sti.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'sti.jpg'))
+});
+
+app.get('/img/isr.jpg', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'isr.jpg'))
+});
+
+app.get('/img/pdf.png', function (req, res, next) {
+    res.sendFile(path.join(__dirname, 'img', 'pdf.png'))
+});
 
 //Route files
 let articles = require('./routes/articles');

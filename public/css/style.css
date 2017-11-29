@@ -1,11 +1,31 @@
 .alert-error{
-    color: #a94442;
-    background-color: #f2dede;
-    border-color: #ebccd1;
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #ebccd1;
 }
 
 .alert-success_msg{
-    color: #3c763d;
-    background-color: #dff0d8;
-    border-color: #d6e9c6;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+
+.index-page{
+    background: url('background-02.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
+.register-page{
+    background: url('signup-page.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
+.login-page{
+    background: url('login-page.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
+.tileMe li{
+    display: inline-block;
+    float: right;
 }
