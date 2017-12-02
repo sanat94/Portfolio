@@ -15,6 +15,11 @@
     background-size: cover;
 }
 
+.layout-page{
+    background: url('layoutpage.jpg') no-repeat fixed;
+    background-size: cover;
+}
+
 .register-page{
     background: url('signup-page.jpg') no-repeat fixed;
     background-size: cover;
