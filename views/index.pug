@@ -1,68 +1,234 @@
 doctype html
 html(lang='en')
   head
+    meta(charset='UTF-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=Edge')
+    meta(name='description', content='')
+    meta(name='keywords', content='')
+    meta(name='author', content='templatemo')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Personal Portfolio
-    meta(charset='utf-8')
-    meta(name='keywords', content='Sana Tafleen, portfolio, ULL, student')
-    link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    //
+      Stimulus Template
+      http://www.templatemo.com/tm-498-stimulus
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    link(rel='stylesheet', href='css/animate.css')
+    link(rel='stylesheet', href='css/font-awesome.min.css')
+    link(rel='stylesheet', href='css/templatemo-style.css')
     link(rel='stylesheet' href='/css/style.css')
     link(rel='stylesheet' href='https://afeld.github.io/emoji-css/emoji.css')
-  body(class="index-page", data-spy='scroll', style='padding-top:50px')
-    nav.navbar.navbar.navbar-fixed-top
+    link(href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700', rel='stylesheet')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+  body(class="layout-page", data-spy='scroll', data-target='.navbar-collapse', data-offset='50')
+    if user
+    // PRE LOADER
+    .preloader
+      .spinner
+        span.spinner-rotate
+    // Navigation Section
+    .navbar.navbar-fixed-top.custom-navbar(role='navigation')
       .container
+        // navbar header
         .navbar-header
-          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
-            span.sr-only Toggle navigation
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          a.navbar-brand(style="font-size:25px; color:black") PORTFOLIO WEBSITE
-        form.navbar-form.navbar-right
-          .form-group
-            input.form-control(type='text', placeholder='Search')
-          button.btn.btn-default(type='submit')
-            span.glyphicon.glyphicon-search
-        #navbar.collapse.navbar-collapse
-            .navigation
-            ul.nav.navbar-nav.navbar-right
-              li
-                a(href='/users/register')
-                  span.glyphicon.glyphicon-user(style="font-size:25px; color:black")
-                    |  Register
-              li
-                a(href='/users/login')
-                  span.glyphicon.glyphicon-log-in(style="font-size:25px; color:black")
-                    |  Login
-    p(style="font-size:40px; color:#FF9C33; padding-top:200px", align='center') Hi! My name is 
-      strong SANA TAFLEEN. 
-    p(style="font-size:30px; color:white", align='center') I’m a web & software developer from Lafayette, Lousiana. 
-    br
-    p(style="font-size:30px; color:white", align='center') If you want to have a look at some of my 
-      a(href='/layout#experience') projects 
-      | and 
-      a(href='/layout#about') skills
-      | , please login and check it out!!
-    p(style="font-size:30px; color:white", align='center') Learn a bit more 
-      a(href='/layout#about') about me 
-      | and then consider hiring me 
-      i.em.em-grinning
-  footer(style='position:fixed; bottom:0')
-    .container
-      .row
-        .col-md-12.col-sm-12
-          .wow.fadeInUp.footer-copyright(data-wow-delay='1.8s')
-            p(style="color:white") Designed and Developed by 
-              strong Sana Tafleen 
-              | 2017
-    ul.tileMe(style='text-align: right')
-      li.facebook
-          a(href='http://www.facebook.com/sana.tafleen', title='Like me on Facebook', target='_blank')
-              img(src='https://socialmediawidgets.files.wordpress.com/2014/03/02_facebook.png', width='35', height='35')
-      li.linkedin
-          a(href='https://www.linkedin.com/in/sana-tafleen-80a619b0/', title='Connect with me on Linkedin', target='_blank')
-              img(src='https://socialmediawidgets.files.wordpress.com/2014/03/07_linkedin.png', width='35', height='35')
-      li.instagram
-          a(href='https://www.instagram.com/?hl=en', title='Follow mw on Instagram', target='_blank')
-              img(src='https://socialmediawidgets.files.wordpress.com/2014/03/10_instagram.png', width='35', height='35')
+          button.navbar-toggle(data-toggle='collapse', data-target='.navbar-collapse')
+            span.icon.icon-bar
+            span.icon.icon-bar
+            span.icon.icon-bar
+          a.navbar-brand(href='/layout') My Portfolio
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.smoothScroll(href='#home') Home
+            li
+              a.smoothScroll(href='#about') About Me
+            li
+              a.smoothScroll(href='#projects') Projects
+            li
+              a.smoothScroll(href='#quotes') Resume
+            li
+              a.smoothScroll(href='#contact') Contact
+            li
+              a(href='/') 
+                span.glyphicon.glyphicon-log-out  Logout
+              
+    // Home Section
+    section#home.parallax-section
+      .container
+        .row
+          .home-thumb
+            .section-title(style="color: #E5E4E2", align='center')
+              h1.wow.fadeInUp(data-wow-delay='0.3s') Hey!
+                i.em.em-smiley
+              h3.wow.fadeInUp(data-wow-delay='0.6s')
+                | I am   
+                strong Sana Tafleen,
+                |  a design-minded web developer focused 
+                | on building beautiful applications and experiences.
+              h3.wow.fadeInUp(data-wow-delay='0.8s')
+                | I am seeking a full-time position as a Software developer to utilize my 
+                | problem solving skills. 
+              h3.wow.fadeInUp(data-wow-delay='1.0s')
+                | If you want to know more about me, click 
+                i.em.em-point_down
+                  a.wow.fadeInUp.smoothScroll.section-btn.btn.btn-success(href='#about', data-wow-delay='1.4s') Get Started
+              //.down-arrow(onclick="$(window).scrollTo($('#about'), 400, {offset: -50});")
+                svg(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', version='1.1', x='0px', y='0px', width='43px', height='33px', viewbox='0 0 43 33', enable-background='new 0 0 43 33', xml:space='preserve')
+                  g
+                    path(fill='#FFFFFF', d='M0.093,1.294c0,3.176,0,7.686,0,8.77l21.408,21.502l21.406-21.502c0-0.836,0-6.08,0-8.77L21.501,22.796   L0.093,1.294z')
+    // About Section
+    section#about.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+            .about-thumb
+            .color-white
+              .wow.fadeInUp.section-title(data-wow-delay='0.4s')
+                h1(style='color:#EE9A4D') ABOUT ME
                 
+                p(style='font-size:20px') I am currently pursuing Master's in University of Louisiana at Lafayette.
+                p(style='font-size:20px') I work as a Research assistant at my university and I am currently working on my thesis in the area of Networking.
+                
+          .col-md-6.col-sm-6
+            .skill-thumb
+            .color-white
+              .wow.fadeInUp.section-title.color-black(data-wow-delay='1.2s')
+                h1(style='color:#EE9A4D') MY SKILLS
+                p SQL, MYSQL, C, C++, Java, Python
+              .wow.fadeInUp.skill-thumb(data-wow-delay='1.4s')
+                strong Frontend Design
+                span.pull-right 80%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%;')
+                strong Proficiency in Programming Languages
+                span.pull-right 90%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='90', aria-valuemin='0', aria-valuemax='100', style='width: 90%;')
+                strong Operating Systems
+                span.pull-right 95%
+                .progress
+                  .progress-bar(role='progressbar', aria-valuenow='95', aria-valuemin='0', aria-valuemax='100', style='width: 95%;')
+    section#experience.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+            .background-image.experience-img
+          .col-md-6.col-sm-6
+            .experience-thumb
+            .color-white
+              .wow.fadeInUp.section-title(data-wow-delay='0.3s')
+                h1(style='color:#EE9A4D') MY EXPERIENCE
+              .wow.fadeInUp.media(data-wow-delay='0.5s')
+                .media-object.media-left
+                .media-body
+                  li(style='font-size:26px') Research Assistant at University of Louisiana at Lafayette 
+                    small Sep 2016 - Present 
+                  h4.color-black Project: Virtual Crisis Information Sharing using SDN/OpenFlow
+                  p Introduce a video-based mobile application for the
+                    | public to report any ongoing incidents or disasters. My research is to develop a fast failure recovery from any
+                    | virtual switch failures, to have a resilient SDN network to handle network failures as well as improved network
+                    | performance.
+    section#education.parallax-section
+      .container
+        .row
+          .col-md-6.col-sm-6
+            .education-thumb
+            .color-white
+              .wow.fadeInUp.section-title(data-wow-delay='0.8s')
+                h1(style='color:#EE9A4D') MY EDUCATION
+              .wow.fadeInUp.media(data-wow-delay='1.2s')
+                .media-object.media-left
+                  //i.fa.fa-laptop
+                .media-body
+                  li(style='font-size:26px') University of Louisiana at Lafayette
+                    small  Aug 2016 - Present
+                  p Pursuing Master's in Computer Science
+              .wow.fadeInUp.media(data-wow-delay='1.4s')
+                .media-object.media-left
+                  //i.fa.fa-laptop
+                .media-body
+                  li(style='font-size:26px')  V.R. Siddhartha Engineering College 
+                    small Sep 2012 - May 2016
+                  p Bachelor's degree of Technology (Graduate)
+          .col-md-6.col-sm-6
+            .background-image.education-img
+    // Projects Section
+    section#projects.parallax-section
+      .container
+        .row
+        .color-white
+          h1(style='color:#EE9A4D') MY PROJECTS
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.4s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/sti.jpg', alt='Student Teacher Interaction System')
+              h2.heading Student Teacher Interaction System
+              p.description A web and mobile application for students and faculty to increase interaction and communication
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.6s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/isr.jpg', alt='Ranking of Multi-attribute objects')
+              h2.heading Ranking of Multi-Attribute objects
+              p.description A mathematical and algorithmic framework to aggregate partial rankings without supervision using MPM
+          .item.col-md-4.col-sm-6.wow.fadeInUp(data-wow-delay='0.8s')
+            .team-thumb
+              .image-holder
+                img.img-responsive.img-circle(src='img/cg.jpg', alt='Computer Graphics')
+              h2.heading Computer Graphics
+              p.description Develop a basic triangular mesh viewer and provide interactive mouse control for rotating, zooming using OpenGL
+    // Resume Section
+    section#quotes.parallax-section
+      .overlay
+      .container
+        .row
+          #resume-link.col-md-12
+            a#resume-anchor(href='https://mail-attachment.googleusercontent.com/attachment/u/0/?ui=2&ik=1ec61f81d8&view=att&th=15f545728e652dec&attid=0.1&disp=inline&realattid=f_j978zhju0&safe=1&zw&saddbat=ANGjdJ_otyqNpmvts2sNsfAJY6X3kerR-z6pVVyflNiG9X17l50xMeZuY00ha-1642e3reMxOczklKz459mktwOF00WEzMJk5l-kWCfyUnmU-6HwoglmZt2lKuGp7axlgUHxhRFGu99cjJhINWKcgIj7c8U8UCtjk8h7V357nIO5FBDDSSeirVZQPr0JoagwQXvmMPonMX5LENcTquti6wN8_98KweLDR8vOP6-ak5LmLvL0cjB2_3GKVWTNmUx6spz7jJto_TJYreccJY0XJr3OtjmRkeeG3UaDJKN5pFm1u1-IlGbKeP9Fz6Ur7BdDMMWjQb4jUEXju-lONuPQ5hUhjE4OjpkN3A-mhjSemhLBkx9RXBvtrJAamFmnbvngFf08R9oizyF8SInkY9m8S9TNwj1ZVOIUTrtN4BNyoP83Is7GcBgShRoFZKJcKDJ3JGJiAnbUHH8WF1cc3a65OgwZ63E_bHsdrQ6nbEkWJK59b450HRTToYfdczp37QxVrzPBgI09oTEZwzBdDKsyL3n6k3R5n7rZ5fwvEIIU5BR8WoYur3TDorKcV96ouBgNogPkfXNdB2N3Qto0uw1BhM_g5NQSB6uBD7TmG8cFWA')
+              img(src='img/pdf.png',alt="RESUME")
+              h1(style='color:#EE9A4D') RESUME
+    // Contact Section
+    section#contact
+      .container
+        .row
+          .col-md-offset-1.col-md-10.col-sm-12
+            .col-lg-offset-1.col-lg-10.section-title.wow.fadeInUp(data-wow-delay='0.4s')
+              h1(style='color:#EE9A4D') Say something! Get in Touch!
+              form.wow.fadeInUp(action='#', method='post', data-wow-delay='0.8s')
+                .col-md-6.col-sm-6
+                  input#name.form-control(name='name', type='text', placeholder='Your Name')
+                .col-md-6.col-sm-6
+                  input#email.form-control(name='email', type='email', placeholder='Your Email')
+                .col-md-12.col-sm-12
+                  textarea#message.form-control(name='message', rows='6', placeholder='Message')
+                .col-md-offset-3.col-md-6.col-sm-offset-3.col-sm-6
+                  input.form-control(type='submit', value='SEND MESSAGE')
+      
+    // Footer Section
+    footer
+      .container
+        .row
+          .col-md-12.col-sm-12
+            .wow.fadeInUp.footer-copyright(data-wow-delay='0.2s')
+              p(style='color: white') Design: Sana Tafleen, 2017
+              ul.tileMe(style='align: center')
+                li.facebook
+                    a(href='http://www.facebook.com/sana.tafleen', title='Like me on Facebook', target='_blank')
+                        img(src='https://socialmediawidgets.files.wordpress.com/2014/03/02_facebook.png', width='35', height='35')
+                li.linkedin
+                    a(href='https://www.linkedin.com/in/sana-tafleen-80a619b0/', title='Connect with me on Linkedin', target='_blank')
+                        img(src='https://socialmediawidgets.files.wordpress.com/2014/03/07_linkedin.png', width='35', height='35')
+                li.instagram
+                    a(href='https://www.instagram.com/?hl=en', title='Follow mw on Instagram', target='_blank')
+                        img(src='https://socialmediawidgets.files.wordpress.com/2014/03/10_instagram.png', width='35', height='35')
+    // SCRIPTS
+    script(src='js/jquery.js')
+    script(src='js/bootstrap.min.js')
+    script(src='js/jquery.parallax.js')
+    script(src='js/smoothscroll.js')
+    script(src='js/wow.min.js')
+    script(src='js/custom.js')
+    
+
+    
     
